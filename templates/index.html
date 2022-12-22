@@ -1,0 +1,119 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <link rel="stylesheet" href="{% static 'style/style.css' %}">
+</head>
+<body>
+    <div class = "main">
+      
+        <div class = "head">
+          Weather
+        </div>
+        <div class = "searchbar">
+            <form method = "POST" >
+              {% csrf_token %}
+                <input type = "text" class = "searchbox"name = "city" placeholder="Enter city name"> 
+            </form>
+        </div>
+        <div class = "weather-detail">
+            <div class = "upper">
+                <div class="weather icons">
+                    <img src = "{% static 'images/sun.gif' %}" class = "icon globe">
+                </div>
+                <div class = "city detail">
+                    {{weatherdata.city}}
+                </div>
+                <div class="weather icons" >
+                    <img src = "{% static 'images/night.gif' %}" class = "icon globe">
+                </div>
+            </div>
+            <div class = "weather description">
+                <div class = "icons" >
+                  {% if request.method == 'POST' %}
+                    <img src = "http://openweathermap.org/img/wn/{{weatherdata.icon}}.png" class = "icon description">
+                  {% else %}
+                  <img src = "{% static 'images/weather.png' %}" class = "icon globe">
+                  {% endif %}
+                </div>
+                <div>
+                    Weather : 
+                </div>
+                {% if request.method == 'POST' %}
+                    <div class = "description detail">
+                  {{weatherdata.description}}
+                </div>
+                  {% else %}
+                  -/-
+                  {% endif %}
+            </div>
+            <div class = "weather coodinates">
+                <div>
+                    Latitude / Longitude : 
+                </div>
+                <div class = "coordinate detail">
+                  {% if request.method == 'POST' %}
+                    <small>{{weatherdata.latitude}} /{{weatherdata.longitude}}</small>
+                  {% else %}
+                  -/-
+                  {% endif %}
+                  
+                </div>
+                <div class = "icons" >
+                    <img src = "{% static 'images/globe.gif' %}" class = "icon globe">
+                </div>
+            </div>
+            <div class = "weather temperature">
+                <div class = "icons">
+                    <img src = "{% static 'images/temperature.gif' %}" class = "icon temperature">
+                </div>
+                <div>
+                    Temperature :
+                </div>
+                {% if request.method == 'POST' %}
+                <div class = "temperature detail">
+                {{weatherdata.temperature}} &#8451;
+                </div>
+                {% else %}
+                -/-
+                {% endif %}
+            </div>
+            <div class = "weather wind">
+                <div>
+                    Pressure : 
+                </div>
+              {% if request.method == 'POST' %}
+                <div class = "wind detail">
+                  {{weatherdata.pressure}} hPa
+                </div>
+                {% else %}
+                -/-
+                {% endif %}
+                <div class = "icons">
+                    <img src = "{% static 'images/wind.gif' %}" class = "icon wind">
+                </div>
+            </div>
+            <div class = "weather humidity">
+                <div class = "icons">
+                    <img src = "{% static 'images/humidity.gif' %}" class = "icon humidity">
+                </div>
+                <div>
+                    Humidity  :
+                </div>
+                {% if request.method == 'POST' %}
+                <div class = "humidity detail">
+                  {{weatherdata.humidity}} %
+                </div>
+                {% else %}
+                -/-
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

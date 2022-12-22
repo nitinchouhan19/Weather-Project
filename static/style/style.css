@@ -1,0 +1,103 @@
+*
+{
+    font-family: Roboto;
+    color:#28292d;
+    
+}
+body
+{
+    background-color: #28292d;
+}
+.head
+{
+  color:white;
+  letter-spacing:2px;
+  font-size:40px;
+  font-weight:bold;
+}
+.main
+{
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.city.detail
+{
+    letter-spacing: 2px;
+}
+.searchbar
+{
+    padding:40px;
+}
+.upper
+{
+    background-color: white;
+    width:350px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction:row;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.weather.icons
+{
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+.weather-detail
+{
+    width:350px;
+    border-radius:50px;
+}
+.weather
+{
+    background-color: white;
+    display : flex;
+    align-items: center;
+    /* justify-content: space-around; */
+    justify-content: space-between;
+    padding:20px;
+    font-size:20px;
+}
+.weather.humidity
+{
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+.icon
+{
+    width:60px;
+}
+.city
+{
+    padding:5px;
+    text-align:center;
+}
+.detail
+{
+    font-weight: bold;
+    font-size: 20px;
+}
+.searchbox{
+    width:350px;
+    height:36px;
+    padding-left: 10px;
+    font-size: 16px;
+    border-radius: 2px;
+    border-style: solid;
+    border-color:rgb(217, 217, 217);
+    border-width: 1px;
+    border-radius:25px;
+    box-shadow: inset 1px 2px 3px rgba(0,0,0,0.05);
+}
+.searchbox::placeholder{
+    font-family: Roboto;
+    font-size: 16px;
+}
+/* .coordinate.detail,
+.description.detail
+{
+  font-size : 20px;
+} */
